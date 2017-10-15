@@ -8,8 +8,14 @@ namespace ParrondoParadox
 		public static void Main(string[] args)
 		{
 			int position = 0, gamesWon = 0, gamesLost = 0;
-			List<int> orangeLeft = new List<int> { 2, 4, 12 }, orangeRight = new List<int> { 11 }, yellowLeft = new List<int> { 2, 3, 12 }, yellowRight = new List<int> { 7, 11 };
-			List<int> secondOrangeLeft = new List<int> { 2, 3, 12 }, secondOrangeRight = new List<int> { 7, 11 }, secondYellowLeft = new List<int> { 2, 4, 12 }, secondYellowRight = new List<int> { 11 };
+			List<int> orangeLeft = new List<int> { 2, 4, 12 }, 
+				  orangeRight = new List<int> { 11 }, 
+				  yellowLeft = new List<int> { 2, 3, 12 }, 
+				  yellowRight = new List<int> { 7, 11 };
+			List<int> secondOrangeLeft = new List<int> { 2, 3, 12 }, 
+				  secondOrangeRight = new List<int> { 7, 11 }, 
+				  secondYellowLeft = new List<int> { 2, 4, 12 }, 
+				  secondYellowRight = new List<int> { 11 };
 			double probability = 0;
 			Random rand = new Random();
 
@@ -69,7 +75,10 @@ namespace ParrondoParadox
 					break;
 			}
 
-			Console.WriteLine("Number of games played: " + (gamesWon + gamesLost) + "\nNumber of games lost: " + gamesLost + "\nNumber of games won: " + gamesWon + "\n\nApproximate probability of victory: " + probability);
+			Console.WriteLine("Number of games played: " + (gamesWon + gamesLost) + 
+					  "\nNumber of games lost: " + gamesLost + 
+					  "\nNumber of games won: " + gamesWon + 
+					  "\n\nApproximate probability of victory: " + probability);
 			Console.Read();
 		}
 	}
