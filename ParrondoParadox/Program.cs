@@ -7,21 +7,29 @@ namespace ParrondoParadox
 	{
 		public static void Main(string[] args)
 		{
-			int position = 0, gamesWon = 0, gamesLost = 0;
+			/* Set the initial variables */
+			int position = 0, gamesWon = 0, gamesLost = 0, N = 1000000;
+			double probability = 0;
+			Random rand = new Random();
+			
+			/* Create a list of rules for the first game */
 			List<int> orangeLeft = new List<int> { 2, 4, 12 }, 
 				  orangeRight = new List<int> { 11 }, 
 				  yellowLeft = new List<int> { 2, 3, 12 }, 
 				  yellowRight = new List<int> { 7, 11 };
+			
+			/* Create a list of rules for the second game */
 			List<int> secondOrangeLeft = new List<int> { 2, 3, 12 }, 
 				  secondOrangeRight = new List<int> { 7, 11 }, 
 				  secondYellowLeft = new List<int> { 2, 4, 12 }, 
 				  secondYellowRight = new List<int> { 11 };
-			double probability = 0;
-			Random rand = new Random();
 
+			/* While the player has not reached the end of the 1D board */
 			while (position != -2 || position != 2)
 			{
+				/* Flip a coin for which rules to use */
 				int coinToss = rand.Next(1, 3);
+				/* Roll a die for what move to make */
 				int diceRoll = rand.Next(1, 13);
 
 				if (coinToss == 1)
@@ -41,7 +49,8 @@ namespace ParrondoParadox
 							position++;
 					}
 				}
-				else {
+				else 
+				{
 					if (position == 0)
 					{
 						if (secondOrangeLeft.Contains(diceRoll))
@@ -71,7 +80,7 @@ namespace ParrondoParadox
 					if(gamesLost != 0) probability = (double)gamesWon / gamesLost;
 				}
 
-				if (gamesWon + gamesLost == 1000000)
+				if (gamesWon + gamesLost == N)
 					break;
 			}
 
